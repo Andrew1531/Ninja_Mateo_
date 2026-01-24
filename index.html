@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ninja Alphabet Dojo</title>
+    <style>
+        body { background: #2c3e50; color: white; font-family: 'Arial', sans-serif; text-align: center; }
+        .dojo-container { margin-top: 50px; }
+        .letter-card { 
+            display: inline-block; width: 100px; height: 100px; 
+            background: #e74c3c; border: 5px solid #c0392b;
+            font-size: 50px; line-height: 100px; margin: 10px;
+            cursor: pointer; border-radius: 10px; transition: transform 0.2s;
+        }
+        .letter-card:hover { transform: scale(1.1) rotate(5deg); }
+        h1 { font-size: 3em; text-shadow: 2px 2px #000; }
+    </style>
+</head>
+<body>
+
+    <h1>🥷 NINJA ALPHABET DOJO 🥷</h1>
+    <p>Choose a scroll to begin your training!</p>
+
+    <div class="dojo-container" id="alphabet-grid">
+        </div>
+
+    <script>
+        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+        const grid = document.getElementById('alphabet-grid');
+
+        alphabet.forEach(letter => {
+            let card = document.createElement('div');
+            card.className = 'letter-card';
+            card.innerText = letter;
+            card.onclick = () => {
+                speakLetter(letter);
+                // Future: Redirect to the tracing/game page for this letter
+            };
+            grid.appendChild(card);
+        });
+
+        function speakLetter(l) {
+            const msg = new SpeechSynthesisUtterance();
+            msg.text = `Ninja Level: ${l}!`;
+            window.speechSynthesis.speak(msg);
+        }
+    </script>
+</body>
+</html>

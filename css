@@ -1,66 +1,28 @@
-/* Custom Font (Optional: Use a chunky font for kids) */
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
-
-body {
-    background-color: #2c3e50;
-    background-image: radial-gradient(#34495e 20%, transparent 20%),
-                      radial-gradient(#34495e 20%, transparent 20%);
-    background-size: 50px 50px;
-    background-position: 0 0, 25px 25px; /* Subtle "Dojo Mat" pattern */
-    color: #ecf0f1;
-    font-family: 'Bangers', system-ui, sans-serif;
-    margin: 0;
-    padding: 20px;
-    overflow-x: hidden;
+#city {
+  display: flex;
+  align-items: flex-end;  /* bottom align so letters stack upwards */
+  justify-content: flex-start;
+  gap: 10px;
+  height: 300px;
+  margin-top: 20px;
 }
 
-h1 {
-    font-size: 4rem;
-    color: #e74c3c;
-    text-shadow: 4px 4px 0px #000;
-    letter-spacing: 3px;
-    margin-bottom: 10px;
-    animation: titleFloat 3s ease-in-out infinite;
+.city-tower {
+  display: flex;
+  flex-direction: column-reverse; /* stack letters from bottom up */
+  align-items: center;
+  gap: 2px;
 }
 
-/* The Grid for the Letters */
-.dojo-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 20px;
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 20px;
+.city-block {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: white;
+  border-radius: 5px;
+  border: 2px solid #2980b9;
+  transition: all 0.5s ease;
 }
-
-/* Individual Ninja Scrolls (Letter Cards) */
-.letter-card {
-    aspect-ratio: 1 / 1;
-    background: #f1c40f; /* Gold scroll color */
-    border: 8px solid #d35400;
-    border-radius: 20px; /* Rounded corners are friendlier */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 70px;
-    color: #2c3e50;
-    cursor: pointer;
-    box-shadow: 0 10px 0 #a04000; /* 3D "Button" look */
-    position: relative;
-    transition: all 0.1s;
-    user-select: none;
-}
-
-/* Click Effect: The button "pushes" down */
-.letter-card:active {
-    transform: translateY(8px);
-    box-shadow: 0 2px 0 #a04000;
-}
-
-/* Hover Effect: The "Ninja Wobble" */
-.letter-card:hover {
-    background: #f39c12;
-    animation: wobble 0.5s infinite;
-}
-
-/* Animations */
